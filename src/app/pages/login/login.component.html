@@ -1,0 +1,33 @@
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="card col-md-3">
+        <div class="card-header">
+            <h5 class="azul-titulos text-center">Login</h5>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="login" (ngSubmit)="ingresar()">
+                <div class="form-row">
+                    <label class="control-label">Usuario</label>
+                    <input class="form-control" formControlName="Usuario" [class.is-invalid]="usuarioObligatorio">
+                    <span *ngIf="usuarioObligatorio" class="text-danger">
+                        {{ mensaje }}
+                    </span>
+                </div>
+                <div class="form-row">
+                    <label class="control-label">Clave</label>
+                    <input type="password" class="form-control" formControlName="Clave" [class.is-invalid]="claveObligatoria">
+                    <span *ngIf="claveObligatoria" class="text-danger">
+                        {{ mensaje }}
+                    </span>
+                </div>
+                <div class="form-row mt-3 d-flex justify-content-center">
+                    <div class="me-2">
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" (click)="borrar()">Borrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

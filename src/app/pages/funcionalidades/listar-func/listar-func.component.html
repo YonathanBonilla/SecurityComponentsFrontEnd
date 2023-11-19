@@ -1,0 +1,52 @@
+<div class="mt-4">
+    <app-titulo [modulo]="titulo" [mostrar]="true"></app-titulo>
+    <div class="col-md-3 ms-5 ps-5 mt-4">
+        <div class="mb-1 fw-bold">
+            <label>Buscar por</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-text fondo-blanco color-gris cursor" (click)="buscar(texto.value)"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" class="form-control lineas-buscadores" placeholder="Nombre funcionalidad" #texto id="caja">
+            <span class="input-group-text fondo-blanco color-gris cursor" (click)="borrar()" id="cancel">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </span>
+        </div>
+    </div>
+    <div class="ms-5 me-5 ps-5 pe-5 mt-4">
+        <table class="table">
+            <thead class="fondo-gris">
+                <tr class="text-center">
+                    <th scope="col">Código tramite</th>
+                    <th scope="col">Nombre funcionalidad</th>
+                    <th scope="col">Roles</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let func of lista | paginate: { itemsPerPage: 4, currentPage: pagina }" class="text-center">
+                    <td>{{ func.codFunc }}</td>
+                    <td>{{ func.nameFunc }}</td>
+                    <td class="col-3">{{ func.rolName }}</td>
+                    <td>
+                        <a class="text-primary cursor" *ngIf="func.state == true" [routerLink]="['crear-funcionalidad', func.nameFunc]">
+                            <i class="fa fa-marker fa-lg"></i>
+                        </a>
+                        <a class="text-danger cursor ms-5 me-2" (click)="desactivarFuncionalidad(func.funcionalityId!)" *ngIf="func.state == true">
+                            <i class="fa fa-minus-circle fa-lg"></i>
+                        </a>
+                        <div class="d-flex justify-content-between">
+                            <div class="col-3"></div>
+                            <a class="text-success col-9" *ngIf="func.state == false" (click)="activarFuncionalidad(func.funcionalityId!)">
+                                <i class="fa-solid fa-circle-plus fa-lg cursor"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between mt-2">
+            <button class="btn btn-outline-primary rounded-pill" (click)="crearFuncionalidad()">CREAR NUEVA FUNCIONALIDAD</button>
+            <pagination-controls class="clase-paginador" (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+    </div>
+</div>

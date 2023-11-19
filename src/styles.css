@@ -1,0 +1,86 @@
+.cursor {
+    cursor: pointer;
+}
+
+.fondo-gris {
+    background-color: #EBEDEF;
+}
+
+.azul-titulos {
+    color: #3498DB;
+}
+
+.fondo-blanco {
+    background-color: #ffffff;
+}
+
+.lineas-buscadores {
+    border-left: none;
+    border-right: none;
+}
+
+.lineas-buscadores-2 {
+    border-left: none;
+}
+
+.color-gris {
+    color: #AEB6BF;
+}
+
+.sin-tamaño {
+    resize: none;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.scroll-tabla {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.scroll-listas {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.scroll-listas-2 {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.radius-1 {
+    border-radius: 0 25px 25px 0;
+}
+
+.radius-2 {
+    border-radius: 25px 0 0 25px;
+}
+
+.btn-edit {
+    font-size: 11px;
+    padding: 0 2px 0 0;
+    text-align: center;
+    width: 70px;
+    height: 20px;
+}
+
+.ocultar {
+    display: none;
+}
+
+.no-bordes {
+    border: 0 !important;
+}
+
+.deshabilitar {
+    pointer-events: none;
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.cabecera thead {
+    position: sticky;
+    top: 0;
+}

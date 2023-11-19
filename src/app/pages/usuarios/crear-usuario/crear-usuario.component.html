@@ -1,0 +1,59 @@
+<div class="mt-4">
+    <app-titulo [modulo]="titulo" [mostrar]="true"></app-titulo>
+    <div class="d-flex justify-content-center mt-5 col-12">
+        <form [formGroup]="formulario" (ngSubmit)="guardar()">
+            <div class="d-flex">
+                <label class="control-label me-4">Correo</label>
+                <input class="form-control ms-3" formControlName="Correo" [class.is-invalid]="correoObligatorio">
+            </div>
+            <div class="d-flex justify-content-center">
+                <span *ngIf="correoObligatorio" class="text-danger">
+                    {{ mensaje }}
+                </span>
+            </div>
+            <div class="d-flex mt-5">
+                <div class="d-flex me-3">
+                    <label class="control-label me-3">Usuario</label>
+                    <input class="form-control ms-3" formControlName="Usuario">
+                </div>
+                <div class="d-flex">
+                    <label class="control-label me-3">Contraseña</label>
+                    <input type="password" class="form-control" formControlName="Password" [class.is-invalid]="passwordObligatorio">
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <span *ngIf="passwordObligatorio" class="text-danger">
+                    {{ mensaje }}
+                </span>
+            </div>
+            <div class="d-flex mt-5">
+                <div class="d-flex me-3">
+                    <label class="control-label me-4">Nombres</label>
+                    <input class="form-control" formControlName="Nombres">
+                </div>
+                <div class="d-flex">
+                    <label class="control-label me-4">Apellidos</label>
+                    <input class="form-control ms-1" formControlName="Apellidos">
+                </div>
+            </div>
+            <div class="d-flex mt-5">
+                <div class="d-flex me-3">
+                    <label class="control-label me-5">Cargo</label>
+                    <input class="form-control" formControlName="Cargo">
+                </div>
+                <div class="d-flex">
+                    <label class="control-label me-5">Área</label>
+                    <input class="form-control ms-3" formControlName="Area">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                <div class="me-2">
+                    <button class="btn btn-primary" type="submit">Aceptar</button>
+                </div>
+                <div class="ms-2">
+                    <button class="btn btn-primary" (click)="borrar()">Borrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
